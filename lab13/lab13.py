@@ -1,4 +1,4 @@
-from stable_baselines3 import DQN, PPO
+from stable_baselines3 import PPO
 from stable_baselines3.common.evaluation import evaluate_policy
 import gymnasium as gym
 from types import MethodType
@@ -30,16 +30,16 @@ print("Creating agent...")
 model = PPO("MlpPolicy", env, verbose=1, tensorboard_log="./lab13/ppo_frozenlake_tensorboard/")
 # Train the agent and display a progress bar
 # TODO you may want to increase total_timesteps if your agent is not learning
-model.learn(total_timesteps=int(3e4), progress_bar=True) 
+model.learn(total_timesteps=int(1e4), progress_bar=True) 
 # Save the agent
-model.save("ppo_frozenlake")
+model.save("./lab13/ppo_frozenlake")
 del model  # delete trained model to demonstrate loading
 
 # Load the trained agent
 # NOTE: if you have loading issue, you can pass `print_system_info=True`
 # to compare the system on which the model was trained vs the current one
 # model = DQN.load("dqn_lunar", env=env, print_system_info=True)
-model = PPO.load("ppo_frozenlake", env=env)
+model = PPO.load("./lab13/ppo_frozenlake", env=env)
 
 # Evaluate the agent
 # NOTE: If you use wrappers with your environment that modify rewards,

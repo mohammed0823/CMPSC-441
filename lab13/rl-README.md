@@ -33,7 +33,7 @@ This lab covers Course Objective 2.
 
 2. Write a report in `lab13/lab13-report.md` and include the following:
    - A description of your custom reward function
-   - A plot of the agent's learning curve of reward and episode length (note that episode is different from timestep)
-   - A discussion of how the reward function affected the agent's learning
+   - A plot of the agent's learning curve of reward and episode length (note that episode is different from timestep) (You can use the tensorboard logs)
+   - A discussion of how the reward function affected the agent's learning and behavior
 
 3. Commit your code with the three different reward functions, your report and the `./lab13/ppo_frozenlake/` folder with the run data. Name your reward functions differntly, e.g., myreward1, myreward2, myreward3. Your final code may only be using one of the three reward functions, but you should have all three in your commit.
