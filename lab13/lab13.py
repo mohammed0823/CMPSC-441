@@ -4,9 +4,8 @@ import gymnasium as gym
 from types import MethodType
 
 # TODO Write your reward functions here
-def myreward(state):
-    # Custom reward function
-    pass
+def myreward1(state):
+    return 1 if state == 15 else 0
 
 # Create environment
 
@@ -17,7 +16,7 @@ env = gym.make('FrozenLake-v1', render_mode='rgb_array', desc=None, map_name="4x
 def transition_function(self, action):
     # perform and update
     state, reward, done, truncated, info = self.internal_step(action)
-    reward = myreward(state) # TODO you can change this line to use your custom reward function
+    reward = myreward1(state) # TODO you can change this line to use your custom reward function
     return state, reward, done, truncated, info
 
 # Transition function in gymnasium environments is called step
@@ -30,7 +29,7 @@ print("Creating agent...")
 model = PPO("MlpPolicy", env, verbose=1, tensorboard_log="./lab13/ppo_frozenlake_tensorboard/")
 # Train the agent and display a progress bar
 # TODO you may want to increase total_timesteps if your agent is not learning
-model.learn(total_timesteps=int(1e4), progress_bar=True) 
+model.learn(total_timesteps=int(1e5), progress_bar=True) 
 # Save the agent
 model.save("./lab13/ppo_frozenlake")
 del model  # delete trained model to demonstrate loading
